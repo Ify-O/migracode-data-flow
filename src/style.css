@@ -1,0 +1,70 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.btn--primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn--danger {
+  background: #dc2626;
+  color: white;
+}
+
+.btn--sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.btn--md {
+  padding: 0.5rem 1rem;
+}
+
+.btn--lg {
+  padding: 0.75rem 1.25rem;
+  font-size: 1.1rem;
+}
+
+film-card {
+  display: block;
+  max-width: 280px;
+}
+
+.film-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.film-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.film-card__director,
+.film-card__duration {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
