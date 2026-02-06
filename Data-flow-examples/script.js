@@ -16,9 +16,11 @@ const films = [
 ];
 //console.log(films[0].title, "<----- films.title");
 //render the filmCard in the UI
+
 // const filmCard = document.createElement("section"); //create an element
-// //the "section" is the tag name of the element we want to create and it is a string. We can create any element we want by passing the tag name as an argument to the createElement method. is is also a div.
-// //filmCard.textContent = films[0].title; //append title to the element
+  // //the "section" is the tag name of the element we want to create and it is a string. We can create any element we want by passing the tag name as an argument to the createElement method. is is also a div.
+
+  // //filmCard.textContent = films[0].title; //append title to the element
 // const title = document.createElement("h1") //creating a title element with h1
 // const director = document.createElement("p"); //creating a director element with p
 // director.textContent = films[0].director; //appending the director element to the filmCard element
@@ -36,10 +38,9 @@ function createFilmCard(film) {
     .content.cloneNode(true);
 
   filmCard.querySelector("h3").textContent = film.title;
-  filmCard.querySelector("p").textContent = film.director;
-  filmCard.querySelector("time").textContent = film.times;
-  filmCard.querySelector("data").textContent = film.certificate;
-  filmCard.querySelector("time").textContent = film.duration;
+  filmCard.querySelector("[data-director]").textContent = `Director: ${film.director}`;
+  filmCard.querySelector("[data-certificate]").textContent = `certificate: ${film.certificate}`;
+  filmCard.querySelector("time").textContent = `${film.duration} minutes`;
 
   return filmCard;
 }
