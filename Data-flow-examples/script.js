@@ -8,15 +8,13 @@ const films = [
   },
   {
     title: "Typist Artist Pirate King",
-    directory: "Carol Morley",
+    director: "Carol Morley",
     times: ["15:00", "20:00"],
     certificate: "12A",
     duration: 108,
   },
 ];
-console.log(films[0].title, "<----- films.title");
-
-//PRACTICE
+//console.log(films[0].title, "<----- films.title");
 //render the filmCard in the UI
 // const filmCard = document.createElement("section"); //create an element
 // //the "section" is the tag name of the element we want to create and it is a string. We can create any element we want by passing the tag name as an argument to the createElement method. is is also a div.
@@ -39,12 +37,13 @@ function createFilmCard(film) {
 
   filmCard.querySelector("h3").textContent = film.title;
   filmCard.querySelector("p").textContent = film.director;
+  filmCard.querySelector("time").textContent = film.times;
   filmCard.querySelector("data").textContent = film.certificate;
   filmCard.querySelector("time").textContent = film.duration;
 
   return filmCard;
 }
-
+//PRACTICE
 //document.body.append(createFilmCard(films[0]), createFilmCard(films[1]));
 
 //USE 2
