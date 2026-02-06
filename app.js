@@ -1,35 +1,22 @@
-const films = [
-  {
-    title: "Killing of Flower Moon",
-    director: "Martin Scorsese",
-    times: ["15:35"],
-    certificate: "15",
-    duration: 112,
-  },
-  {
-    title: "Typist Artist Pirate King",
-    director: "Carol Morley",
-    times: ["15:00", "20:00"],
-    certificate: "12A",
-    duration: 108,
-  },
-];
-
-// for (const film of films) {
-//     const {title, director, certificate, duration} = film
-//     const card = document.getElementById("film-card").content.cloneNode(true);
-//     // Now we are querying our cloned fragment, not the entire page.
-//     card.querySelector("h3").textContent = title;
-//     card.querySelector(
-//       "[data-director]"
-//     ).textContent = `Director: ${director}`;
-//     card.querySelector("time").textContent = `${duration} minutes`;
-//     card.querySelector(
-//       "[data-certificate]"
-//     ).textContent = `Certificate: ${certificate}`;
-    
-//     document.body.append(card);
-// }
+const state = {
+  films: [
+   {
+     title: "Killing of Flower Moon",
+     director: "Martin Scorsese",
+     times: ["15:35"],
+     certificate: "15",
+     duration: 112,
+   },
+   {
+     title: "Typist Artist Pirate King",
+     director: "Carol Morley",
+     times: ["15:00", "20:00"],
+     certificate: "12A",
+     duration: 108,
+   },
+  ],
+  searchTerm: ""
+}
 
 
 function createCardComponent({title, director, duration}) {
@@ -49,9 +36,24 @@ function createCardComponent({title, director, duration}) {
     return cardContainer
 }
 
-const body = document.querySelector('body')
+const render = () => {
+  const main = document.querySelector('main')
+  main.innerHTML = ""
 
- const filmCards = films.map(createCardComponent); 
+  const filterFilms = state.films.filter((film) => film.title.toLowerCase().includes(state.searchTerm.toLowerCase())) 
+   const filmCards = filterFilms.map(createCardComponent); 
+  main.append(...filmCards) //(...[obj1, obj2, ob3]) ---> (obj1, obj2, ob3)
 
+}
 
-body.append(...filmCards) //(...[obj1, obj2, ob3]) ---> (obj1, obj2, ob3)
+render()
+
+const searchBox = document.getElementById("search")
+
+const handleInput = (event) => {
+  state.searchTerm = event.target.value 
+
+  render()
+}
+
+searchBox.addEventListener("input", handleInput)
