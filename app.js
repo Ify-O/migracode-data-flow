@@ -27,31 +27,30 @@ const films = [
 //     card.querySelector(
 //       "[data-certificate]"
 //     ).textContent = `Certificate: ${certificate}`;
-    
+
 //     document.body.append(card);
 // }
 
+function createCardComponent({ title, director, duration }) {
+  const cardContainer = document.createElement("div");
+  cardContainer.classList = "card";
+  const cardImg = document.createElement("img");
+  const filmTitle = document.createElement("h3");
+  const filmDirector = document.createElement("p");
+  const filmDuration = document.createElement("p");
 
-function createCardComponent({title, director, duration}) {
-    const cardContainer = document.createElement('div')
-    cardContainer.classList = 'card'
-    const cardImg = document.createElement('img')
-    const filmTitle = document.createElement('h3')
-    const filmDirector = document.createElement('p')
-    const filmDuration = document.createElement('p')
+  cardImg.src = "https://picsum.photos/id/237/200/300";
+  filmTitle.textContent = title;
+  filmDirector.textContent = director;
+  filmDuration.textContent = duration;
 
-    cardImg.src = 'https://picsum.photos/id/237/200/300'
-    filmTitle.textContent = title
-    filmDirector.textContent = director
-    filmDuration.textContent =duration
-
-    cardContainer.append(cardImg, filmTitle, filmDirector, filmDuration)
-    return cardContainer
+  cardContainer.append(cardImg, filmTitle, filmDirector, filmDuration);
+  return cardContainer;
 }
 
-const body = document.querySelector('body')
+const body = document.querySelector("body");
 
- const filmCards = films.map(createCardComponent); 
+const filmCards = films.map(createCardComponent);
+const btn = document.querySelector("button");
 
-
-body.append(...filmCards) //(...[obj1, obj2, ob3]) ---> (obj1, obj2, ob3)
+body.append(...filmCards); //(...[obj1, obj2, ob3]) ---> (obj1, obj2, ob3)
