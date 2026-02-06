@@ -18,7 +18,7 @@ const films = [
 console.log(films[0].title, "<----- films.title");
 //render the filmCard in the UI
 // const filmCard = document.createElement("section"); //create an element
-// //the "section" is the tag name of the element we want to create and it is a string. We can create any element we want by passing the tag name as an argument to the createElement method. is is also a div. 
+// //the "section" is the tag name of the element we want to create and it is a string. We can create any element we want by passing the tag name as an argument to the createElement method. is is also a div.
 // //filmCard.textContent = films[0].title; //append title to the element
 // const title = document.createElement("h1") //creating a title element with h1
 // const director = document.createElement("p"); //creating a director element with p
@@ -29,4 +29,15 @@ console.log(films[0].title, "<----- films.title");
 
 // document.body.appendChild(filmCard); //append the element to the body
 
-//refactor this logic tto use the filmCard template instead of creating the elements manually
+//refactor this logic to use the filmCard template instead of creating the elements manually
+const filmCard = document
+  .getElementById("film-card-template")
+  .content.cloneNode(true);
+
+filmCard.querySelector("h3").textContent = films[0].title;
+filmCard.querySelector("p").textContent = films[0].director;
+filmCard.querySelector("data").textContent = films[0].certificate;
+filmCard.querySelector('time').textContent = films[0].duration;
+
+
+document.body.appendChild(filmCard);
