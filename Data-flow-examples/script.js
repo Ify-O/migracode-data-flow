@@ -43,3 +43,10 @@ function createFilmCard(film) {
 }
 
 document.body.append(createFilmCard(films[0]), createFilmCard(films[1]));
+
+// using a for loop to create a film card for each film in the films array and append it to the body
+
+// for (const film in films) { //create a for loop to iterate through the films array and create a film card for each film
+//   const card = createFilmCard(film); //call the function to create a film card for each film
+//   document.body.appendChild(card);
+// }
