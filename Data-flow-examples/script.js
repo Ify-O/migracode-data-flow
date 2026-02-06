@@ -1,4 +1,3 @@
-console.log("hello world");
 const films = [
   {
     title: "Killing of Flower Moon",
@@ -30,14 +29,17 @@ console.log(films[0].title, "<----- films.title");
 // document.body.appendChild(filmCard); //append the element to the body
 
 //refactor this logic to use the filmCard template instead of creating the elements manually
-const filmCard = document
-  .getElementById("film-card-template")
-  .content.cloneNode(true);
+function createFilmCard(film) {
+  const filmCard = document
+    .getElementById("film-card-template")
+    .content.cloneNode(true);
 
-filmCard.querySelector("h3").textContent = films[0].title;
-filmCard.querySelector("p").textContent = films[0].director;
-filmCard.querySelector("data").textContent = films[0].certificate;
-filmCard.querySelector('time').textContent = films[0].duration;
+  filmCard.querySelector("h3").textContent = film.title;
+  filmCard.querySelector("p").textContent = film.director;
+  filmCard.querySelector("data").textContent = film.certificate;
+  filmCard.querySelector("time").textContent = film.duration;
 
+  return filmCard;
+}
 
-document.body.appendChild(filmCard);
+document.body.append(createFilmCard(films[0]), createFilmCard(films[1]));
