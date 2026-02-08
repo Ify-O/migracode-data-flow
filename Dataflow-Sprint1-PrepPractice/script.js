@@ -3,43 +3,43 @@
 //Then the view should update to show only matching films.
 const state = {
   films: [
-  {
-    title: "Killing of Flower Moon",
-    director: "Martin Scorsese",
-    times: ["15:35"],
-    certificate: "15",
-    duration: 112,
-  },
-  {
-    title: "Typist Artist Pirate King",
-    director: "Carol Morley",
-    times: ["15:00", "20:00"],
-    certificate: "12A",
-    duration: 108,
-  },
-  {
-    title: "Pirate of the Caribbean",
-    director: "Sarah Smith",
-    times: ["15:00", "20:00"],
-    certificate: "15B",
-    duration: 218,
-  },
-  {
-    title: "Marvellous Mrs. Maisel",
-    director: "fred smith",
-    times: ["15:00", "20:00"],
-    certificate: "12A",
-    duration: 520,
-  },
-  {
-    title: "greatest showman",
-    director: "michael smith",
-    times: ["15:00", "20:00"],
-    certificate: "12A",
-    duration: 200,
-  },
-],
-searchTerm: "",
+    {
+      title: "Killing of Flower Moon",
+      director: "Martin Scorsese",
+      times: ["15:35"],
+      certificate: "15",
+      duration: 112,
+    },
+    {
+      title: "Typist Artist Pirate King",
+      director: "Carol Morley",
+      times: ["15:00", "20:00"],
+      certificate: "12A",
+      duration: 108,
+    },
+    {
+      title: "Pirate of the Caribbean",
+      director: "Sarah Smith",
+      times: ["15:00", "20:00"],
+      certificate: "15B",
+      duration: 218,
+    },
+    {
+      title: "Marvellous Mrs. Maisel",
+      director: "fred smith",
+      times: ["15:00", "20:00"],
+      certificate: "12A",
+      duration: 520,
+    },
+    {
+      title: "greatest showman",
+      director: "michael smith",
+      times: ["15:00", "20:00"],
+      certificate: "12A",
+      duration: 200,
+    },
+  ],
+  searchTerm: "",
 };
 
 //console.log(films[0].title, "<----- films.title");
@@ -102,3 +102,16 @@ function render() {
 }
 
 render();
+//steps
+
+//1. query for input element
+//2. link the input element to the searchTerm property in the state object
+//3. filter the films array based on the input value.
+
+const searchInput = document.querySelector("input"); //relating the search input to the DOM element
+searchInput.addEventListener("keyup", function () {
+  //adding an event listener to the search input that listens for the keyup event and calls a function when the event is triggered
+
+  state.searchTerm = searchInput.value; //update tthe search term.
+  console.log(state.searchTerm);
+});
