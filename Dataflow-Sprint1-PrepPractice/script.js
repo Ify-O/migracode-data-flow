@@ -97,8 +97,13 @@ function createFilmCard(film) {
 // document.body.append(...filmCards);
 
 function render() {
-  const filmCards = state.films.map(createFilmCard); //this helps to automatically create a film card for each film in the films array and return an array of film cards
-  document.body.append(...filmCards);
+  const filteredFilms = state.films.filter(function (film) {
+    return film.title.toLowerCase().includes(state.searchTerm.toLowerCase()); //this compare search term with the title. Also tot make it case insensittive
+  });
+
+  const filmCards = filteredFilms.map(createFilmCard); //this helps to automatically create a film card for each film in the filtered films array and return an array of film cards
+  //clear the body before appending new film cards
+  document.getElementById("film-container").append(...filmCards);
 }
 
 render();
@@ -112,6 +117,8 @@ const searchInput = document.querySelector("input"); //relating the search input
 searchInput.addEventListener("keyup", function () {
   //adding an event listener to the search input that listens for the keyup event and calls a function when the event is triggered
 
-  state.searchTerm = searchInput.value; //update tthe search term.
-  console.log(state.searchTerm);
+  state.searchTerm = searchInput.value; //update the search term.
+  document.getElementById("film-container").innerHTML = ""; //clear the film container before appending new film cards. This is necessary because we want to remove the previous film cards before appending new ones based on the updated search term.
+
+  render();
 });
